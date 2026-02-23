@@ -1,0 +1,10 @@
+{
+  "differences": [
+    { "id": "collar_pin", "x": 0.26, "y": 0.23, "radius": 0.05 },
+    { "id": "window_crack", "x": 0.78, "y": 0.19, "radius": 0.05 },
+    { "id": "table_cup", "x": 0.39, "y": 0.61, "radius": 0.06 },
+    { "id": "medal_strip", "x": 0.57, "y": 0.47, "radius": 0.055 },
+    { "id": "sleeve_button", "x": 0.68, "y": 0.72, "radius": 0.05 },
+    { "id": "clock_hand", "x": 0.15, "y": 0.39, "radius": 0.05 }
+  ]
+}

@@ -1,0 +1,47 @@
+name: Deploy to itch.io
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Install butler CLI
+        run: |
+          curl -L -o butler.zip https://broth.itch.zone/butler/linux-amd64/LATEST/archive/default
+          unzip butler.zip
+          chmod +x butler
+          ./butler -V
+
+      - name: Upload dist/ to itch.io
+        env:
+          BUTLER_API_KEY: ${{ secrets.ITCHIO_API_KEY }}
+          ITCHIO_GAME: ${{ secrets.ITCHIO_GAME }}
+        run: |
+          if [ -z "$ITCHIO_GAME" ]; then
+            echo "Missing required secret: ITCHIO_GAME (format user/game-slug)"
+            exit 1
+          fi
+          ./butler push dist "${ITCHIO_GAME}:html5"

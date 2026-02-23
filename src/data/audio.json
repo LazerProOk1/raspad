@@ -1,0 +1,21 @@
+{
+  "clips": [
+    { "id": "ambient_base", "src": "/audio/ambient_base.mp3", "loop": true },
+    { "id": "whisper_layer", "src": "/audio/whisper_layer.mp3", "loop": true },
+    { "id": "pressure_layer", "src": "/audio/pressure_layer.mp3", "loop": true },
+    { "id": "room_clock", "src": "/audio/room_clock.mp3", "loop": true },
+    { "id": "room_floorboards", "src": "/audio/room_floorboards.mp3", "loop": true },
+    { "id": "room_distant_shots", "src": "/audio/room_distant_shots.mp3", "loop": true },
+    { "id": "horror_stinger_doc", "src": "/audio/horror_stinger_doc.mp3", "loop": false },
+    { "id": "horror_stinger_metal", "src": "/audio/horror_stinger_metal.mp3", "loop": false },
+    { "id": "low_pulse", "src": "/audio/low_pulse.mp3", "loop": false },
+    { "id": "harsh_noise_spike", "src": "/audio/harsh_noise_spike.mp3", "loop": false },
+    { "id": "wife_singing", "src": "/audio/wife_singing.mp3", "loop": false }
+  ],
+  "rooms": {
+    "cabinet": "room_clock",
+    "bedroom": "room_floorboards",
+    "reception": "room_distant_shots",
+    "corridor": "room_floorboards"
+  }
+}

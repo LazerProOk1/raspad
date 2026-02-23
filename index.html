@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <title>Raspad Game 2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body {
+        width: 100vw;
+        height: 100vh;
+      }
+      body {
+        overflow: hidden;
+        background: #000;
+      }
+      canvas {
+        display: block;
+      }
+      #app, #game-container, #phaser-game {
+        width: 100vw;
+        height: 100vh;
+      }
+
+      @keyframes noise {
+        0% { transform: translate(0,0); }
+        10% { transform: translate(-1px, 1px); }
+        20% { transform: translate(1px, -1px); }
+        30% { transform: translate(-1px, -1px); }
+        40% { transform: translate(1px, 1px); }
+        50% { transform: translate(-2px, 0); }
+        60% { transform: translate(0, 2px); }
+        70% { transform: translate(2px, -1px); }
+        80% { transform: translate(-1px, 2px); }
+        90% { transform: translate(1px, 0); }
+        100% { transform: translate(0, 0); }
+      }
+
+      @keyframes vhsGlitch {
+        0% { clip-path: inset(0 0 100% 0); opacity: 0; }
+        1% { clip-path: inset(30% 0 60% 0); opacity: 1; transform: translateX(-4px); }
+        2% { clip-path: inset(70% 0 20% 0); opacity: 1; transform: translateX(4px); }
+        3% { clip-path: inset(0 0 100% 0); opacity: 0; }
+        100% { clip-path: inset(0 0 100% 0); opacity: 0; }
+      }
+
+      @keyframes trackingError {
+        0%, 95% { transform: translateY(0); }
+        96% { transform: translateY(-3px); }
+        97% { transform: translateY(3px); }
+        98% { transform: translateY(-1px); }
+        99%, 100% { transform: translateY(0); }
+      }
+
+      #vhs-overlay {
+        animation: trackingError 8s infinite;
+      }
+
+      #vhs-noise {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.15' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.45'/%3E%3C/svg%3E");
+        background-repeat: repeat;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="game-container">
+      <div id="phaser-game">
+        <div id="app"></div>
+      </div>
+    </div>
+    <div id="vhs-overlay" style="
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 1000;
+      mix-blend-mode: multiply;
+    ">
+      <div id="scanlines" style="
+        position: absolute;
+        inset: 0;
+        background: repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 2px,
+          rgba(0,0,0,0.15) 2px,
+          rgba(0,0,0,0.15) 4px
+        );
+      "></div>
+      <div id="vhs-noise" style="
+        position: absolute;
+        inset: 0;
+        opacity: 0.03;
+        animation: noise 0.2s steps(2) infinite;
+      "></div>
+      <div id="vignette" style="
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at center, transparent 60%, rgba(0,0,0,0.7) 100%);
+      "></div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

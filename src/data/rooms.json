@@ -1,0 +1,65 @@
+[
+  {
+    "id": "cabinet",
+    "name": "Кабинет губернатора",
+    "description": "Тяжелый стол, закрытые карты и стенографические листы с мокрыми печатями. Воздух пахнет пылью и металлом.",
+    "items": [
+      {
+        "itemId": "military_doc",
+        "position": "desk-left-drawer",
+        "triggersMiniGame": "archive"
+      },
+      {
+        "itemId": "guilt_doc",
+        "position": "desk-right-drawer",
+        "triggersMiniGame": "archive"
+      }
+    ]
+  },
+  {
+    "id": "bedroom",
+    "name": "Спальня",
+    "description": "Кровать застелена по уставу, чемодан открыт и почти пуст. За окном слышны редкие очереди и долгие паузы.",
+    "items": [
+      {
+        "itemId": "pistol",
+        "position": "nightstand-bottom",
+        "triggersMiniGame": "weapon"
+      },
+      {
+        "itemId": "ammo",
+        "position": "wardrobe-shelf",
+        "triggersMiniGame": "weapon"
+      }
+    ]
+  },
+  {
+    "id": "reception",
+    "name": "Приемная",
+    "description": "Портрет короны висит неровно, под ним застывшие следы от сапог и пепел от сожженных донесений.",
+    "items": [
+      {
+        "itemId": "evac_data",
+        "position": "radio-desk",
+        "triggersMiniGame": "radio"
+      },
+      {
+        "itemId": "loss_data",
+        "position": "wire-records-cabinet",
+        "triggersMiniGame": "radio"
+      }
+    ]
+  },
+  {
+    "id": "corridor",
+    "name": "Коридор",
+    "description": "Длинный проход без окон. Лампы мигают, а шаги возвращаются с задержкой, будто здание отвечает не сразу.",
+    "items": [
+      {
+        "itemId": "family_items",
+        "position": "boxed-portrait-niche",
+        "triggersMiniGame": "photo"
+      }
+    ]
+  }
+]
